@@ -1,7 +1,8 @@
-# 🛒 Blinkit Sales Analysis — End-to-End Data Analytics Case Study
+# 🛒 Blinkit Sales Analysis — End-to-End Data Analytics Dashboard
 
-![Dashboard Preview](images/dashboard_preview.png)
-> *Interactive Microsoft Excel Dashboard summarizing sales, outlet performance, and product insights for Blinkit, featuring dynamic slicers and advanced visualizations.*
+![Dashboard Preview]( <img width="936" height="609" alt="7bfc916f-58cf-4de1-bf91-32ea8ebf6113" src="https://github.com/user-attachments/assets/38dc4ccf-fa9f-4918-9c53-5cea77099886" />
+)
+> *A self-contained, interactive Microsoft Excel Dashboard summarizing sales, outlet performance, and product insights for Blinkit, featuring dynamic slicers and advanced data modeling.*
 
 ---
 
@@ -29,18 +30,16 @@
 ## 📌 Project Overview
 This project presents a **complete end-to-end data analytics case study** on **Blinkit** (India's last-minute quick-commerce grocery delivery app). The analysis leverages a retail sales dataset to uncover actionable insights into **sales performance, customer satisfaction, outlet efficiency, and product demand**.
 
-The final deliverable is a highly **interactive Microsoft Excel Dashboard** supported by structured data modeling, enabling stakeholders to dynamically filter and explore data-driven business decisions without requiring advanced BI software.
+The final deliverable is a **highly interactive, self-contained Microsoft Excel Workbook**. It houses both the cleaned data model and the visual dashboard, enabling stakeholders to dynamically filter and explore data-driven business decisions without requiring external BI software or databases.
 
 ---
 
 ## 🎯 Business Problem
-Blinkit operates in an extremely competitive quick-commerce landscape where speed, product availability, and customer satisfaction are critical success factors. The management requires a **360° view of sales performance** across multiple dimensions — product categories, outlet types, outlet locations, and customer ratings — to:
+Blinkit operates in an extremely competitive quick-commerce landscape where speed, product availability, and customer satisfaction are critical success factors. Management requires a **360° view of sales performance** across multiple dimensions — product categories, outlet types, outlet locations, and customer ratings — to:
 - Identify **top-performing and underperforming segments**.
 - Understand **customer buying behavior** (e.g., fat content preferences).
 - Optimize **inventory distribution** across outlet sizes and tiers.
 - Improve **customer satisfaction** through targeted product placement.
-
-Without a centralized analytical view, decision-making remains reactive and inefficient.
 
 ---
 
@@ -58,7 +57,7 @@ The core objectives of this case study are:
 | Attribute | Details |
 | :--- | :--- |
 | **Dataset Name** | BlinkIT Grocery Data |
-| **File Format** | `.xlsx` / `.csv` |
+| **File Format** | `.xlsx` |
 | **Total Records** | 8,523 items |
 | **Total Columns** | 12 |
 | **Domain** | Retail / Quick-Commerce |
@@ -86,30 +85,31 @@ The core objectives of this case study are:
 ---
 
 ## 🛠 Tools & Technologies
-| Tool | Purpose |
+| Tool / Feature | Purpose |
 | :--- | :--- |
-| **Microsoft Excel** | Primary tool for data modeling, PivotTables, Slicers, and Dashboard visualization |
-| **Excel Power Query** | Data transformation, ETL, and handling missing values |
-| **Advanced Excel Formulas** | `XLOOKUP`, `SUMIFS`, `COUNTIFS`, `AVERAGEIFS` for dynamic KPI calculations |
+| **Microsoft Excel** | Primary tool for end-to-end data modeling and visualization |
+| **Excel Tables (`Ctrl+T`)** | Dynamic range referencing for scalable data analysis |
+| **PivotTables & PivotCharts** | Aggregating data and creating responsive visualizations |
+| **Slicers & Timelines** | Interactive, user-friendly filtering for the dashboard |
+| **Advanced Formulas** | `SUMIFS`, `COUNTIFS`, `AVERAGEIFS`, and `GETPIVOTDATA` for dynamic KPI cards |
 | **Conditional Formatting** | Data bars and color scales to highlight top/bottom performers |
-| **Git & GitHub** | Version control and project documentation |
 
 ---
 
 ## 🧹 Data Cleaning & Preparation
-The following preprocessing steps were performed (using Excel Power Query / Python) to ensure data quality:
-1. **Standardization of Fat Content:** Corrected inconsistent entries such as `LF`, `low fat`, and `reg` to standardized `Low Fat` and `Regular`.
-2. **Handling Missing Values:** `Item Weight` null values were imputed using the median weight of the respective `Item Type`.
-3. **Data Type Conversion:** Ensured `Outlet Establishment Year`, `Sales`, `Rating`, and `Item Visibility` were strictly numeric.
-4. **Duplicate Check:** Verified and removed duplicate `Item Identifier` + `Outlet Identifier` combinations.
-5. **Excel Table Conversion:** Converted the raw range into an official Excel Table (`Ctrl+T`) to ensure dynamic range referencing for PivotTables.
+The following preprocessing steps were performed directly within Excel to ensure data quality:
+1. **Standardization:** Corrected inconsistent entries in `Item Fat Content` (e.g., `LF`, `low fat`, `reg`) to standardized `Low Fat` and `Regular`.
+2. **Handling Missing Values:** Imputed null values in `Item Weight` using the median weight of the respective `Item Type`.
+3. **Data Type Enforcement:** Ensured `Outlet Establishment Year`, `Sales`, `Rating`, and `Item Visibility` were strictly formatted as numbers.
+4. **Duplicate Removal:** Verified and removed duplicate `Item Identifier` + `Outlet Identifier` combinations.
+5. **Structured Formatting:** Converted the raw dataset into an official Excel Table to ensure all PivotTables and charts update automatically when filters are applied.
 
 ---
 
 ## 📈 Dashboard Features & KPIs
-The Excel dashboard is built on a separate sheet, disconnected from raw data, featuring:
+The dashboard is built on a dedicated, clean sheet, disconnected from raw data rows, featuring:
 - **Dynamic Slicers:** For `Outlet Size`, `Outlet Location Type`, and `Item Type`.
-- **KPI Cards:** Built using `GETPIVOTDATA` and `SUMIFS` for real-time updates.
+- **Live KPI Cards:** Built using advanced Excel formulas to update in real-time based on slicer selections.
 
 | KPI | Value |
 | :--- | :--- |
@@ -136,56 +136,43 @@ The Excel dashboard is built on a separate sheet, disconnected from raw data, fe
 | Household | $136.0K |
 | Frozen Foods | $118.6K |
 | Dairy | $101.3K |
-> **Top 2 categories account for ~29% of total revenue.**
 
-### 3️⃣ Sales by Outlet Establishment Year
-- Peak sales observed for outlets established in **2018** (~$205K).
-- Sales trend shows a decline for newer outlets post-2018.
-
-### 4️⃣ Sales by Outlet Size
-| Outlet Size | Sales |
-| :--- | :--- |
-| Medium | $507.9K (42%) |
-| Small | $444.8K (37%) |
-| High | $248.9K (21%) |
-
-### 5️⃣ Sales by Outlet Location Tier
+### 3️⃣ Sales by Outlet Location Tier
 | Tier | Sales |
 | :--- | :--- |
 | Tier 3 | $472.1K |
 | Tier 2 | $393.2K |
 | Tier 1 | $336.4K |
 
-### 6️⃣ Sales by Outlet Type
+### 4️⃣ Sales by Outlet Type
 | Outlet Type | Sales |
 | :--- | :--- |
 | Supermarket Type1 | $787.5K |
 | Grocery Store | $151.9K |
 | Supermarket Type2 | $131.5K |
 | Supermarket Type3 | $130.7K |
-> **Supermarket Type1 alone contributes ~65% of total revenue.**
 
 ---
 
 ## 💡 Key Insights
-1. **Health-Conscious Consumers:** Low Fat items outsell Regular items almost **2:1**, indicating a strong shift in customer preference.
+1. **Health-Conscious Consumers:** Low Fat items outsell Regular items almost **2:1**.
 2. **Tier 3 Dominance:** Contrary to assumptions, **Tier 3 cities generate the highest revenue**, suggesting strong untapped demand in smaller cities.
 3. **Medium Outlets Win:** Medium-sized outlets outperform both small and large stores, implying an optimal store-size sweet spot.
 4. **Supermarket Type1 Supremacy:** This outlet format drives the majority of revenue and should be prioritized for expansion.
-5. **Visibility ≠ Sales:** Average item visibility is very low (0.07) and shows no strong linear correlation with sales — implying demand is driven more by product relevance than shelf placement.
-6. **Rating Stability:** Average rating of **3.97** indicates general customer satisfaction but leaves room for improvement toward a 4.5+ target.
+5. **Visibility ≠ Sales:** Average item visibility is very low (0.07) and shows no strong linear correlation with sales.
+6. **Rating Stability:** Average rating of **3.97** indicates general satisfaction but leaves room for improvement toward a 4.5+ target.
 
 ---
 
 ## 🚀 Strategic Recommendations
 | # | Recommendation | Rationale |
 | :--- | :--- | :--- |
-| 1 | **Expand Low Fat product lines** | Low Fat items contribute 64.6% of revenue |
+| 1 | **Expand Low Fat product lines** | Contributes 64.6% of total revenue |
 | 2 | **Prioritize Tier 3 city expansion** | Highest revenue contribution ($472K) |
 | 3 | **Focus on Medium-sized outlets** | Best sales-to-size efficiency |
 | 4 | **Replicate Supermarket Type1 model** | Generates ~65% of total revenue |
 | 5 | **Optimize F&V and Snacks supply chains** | Top 2 item categories by revenue |
-| 6 | **Re-evaluate shelf visibility strategy** | Weak correlation with sales — test alternative placement tactics |
+| 6 | **Re-evaluate shelf visibility strategy** | Weak correlation with sales; test alternative tactics |
 | 7 | **Launch customer feedback loops** | Improve rating from 3.97 to ≥4.3 |
 
 ---
@@ -194,21 +181,8 @@ The Excel dashboard is built on a separate sheet, disconnected from raw data, fe
 ```text
 blinkit-sales-analysis/
 │
-├── data/
-│   ├── BlinkIT_Grocery_Data_Raw.xlsx    # Original raw dataset
-│   └── cleaned_data.csv                 # Cleaned dataset for SQL/Python validation
-│
-├── dashboard/
-│   └── Blinkit_Excel_Dashboard.xlsx     # Final interactive Excel Dashboard
-│
+├── Blinkit_Sales_Dashboard.xlsx    # Self-contained Excel file (Data + Dashboard)
 ├── images/
-│   └── dashboard_preview.png            # Dashboard screenshot for README
-│
-├── docs/
-│   └── case_study_report.pdf            # Detailed PDF report
-│
-├── sql/
-│   └── queries.sql                      # SQL analysis queries for validation
-│
-├── README.md                            # Project documentation
-└── LICENSE                              # MIT License
+│   └── dashboard_preview.png       # Screenshot of the Excel dashboard
+├── README.md                       # This project documentation
+└── LICENSE                         # MIT License
