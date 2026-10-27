@@ -1,7 +1,6 @@
 # 🛒 Blinkit Sales Analysis — End-to-End Data Analytics Dashboard
 
-![Dashboard Preview]( <img width="936" height="609" alt="7bfc916f-58cf-4de1-bf91-32ea8ebf6113" src="https://github.com/user-attachments/assets/38dc4ccf-fa9f-4918-9c53-5cea77099886" />
-)
+![Dashboard Preview]
 > *A self-contained, interactive Microsoft Excel Dashboard summarizing sales, outlet performance, and product insights for Blinkit, featuring dynamic slicers and advanced data modeling.*
 
 ---
