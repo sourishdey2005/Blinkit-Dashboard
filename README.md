@@ -1,8 +1,7 @@
-```markdown
 # 🛒 Blinkit Sales Analysis — End-to-End Data Analytics Case Study
 
-![Dashboard Preview](dashboard_preview.png)
-> *Interactive Power BI dashboard summarizing sales, outlet performance, and product insights for Blinkit.*
+![Dashboard Preview](images/dashboard_preview.png)
+> *Interactive Microsoft Excel Dashboard summarizing sales, outlet performance, and product insights for Blinkit, featuring dynamic slicers and advanced visualizations.*
 
 ---
 
@@ -14,7 +13,7 @@
 5. [Data Dictionary](#-data-dictionary)
 6. [Tools & Technologies](#-tools--technologies)
 7. [Data Cleaning & Preparation](#-data-cleaning--preparation)
-8. [Dashboard KPIs](#-dashboard-kpis)
+8. [Dashboard Features & KPIs](#-dashboard-features--kpis)
 9. [Exploratory Data Analysis (EDA)](#-exploratory-data-analysis-eda)
 10. [Key Insights](#-key-insights)
 11. [Strategic Recommendations](#-strategic-recommendations)
@@ -28,32 +27,27 @@
 ---
 
 ## 📌 Project Overview
-
 This project presents a **complete end-to-end data analytics case study** on **Blinkit** (India's last-minute quick-commerce grocery delivery app). The analysis leverages a retail sales dataset to uncover actionable insights into **sales performance, customer satisfaction, outlet efficiency, and product demand**.
 
-The final deliverable is an **interactive Power BI dashboard** supported by a structured analytical narrative, enabling stakeholders to make informed, data-driven business decisions.
+The final deliverable is a highly **interactive Microsoft Excel Dashboard** supported by structured data modeling, enabling stakeholders to dynamically filter and explore data-driven business decisions without requiring advanced BI software.
 
 ---
 
 ## 🎯 Business Problem
-
 Blinkit operates in an extremely competitive quick-commerce landscape where speed, product availability, and customer satisfaction are critical success factors. The management requires a **360° view of sales performance** across multiple dimensions — product categories, outlet types, outlet locations, and customer ratings — to:
-
-- Identify **top-performing and underperforming segments**
-- Understand **customer buying behavior** (e.g., fat content preferences)
-- Optimize **inventory distribution across outlet sizes and tiers**
-- Improve **customer satisfaction** through targeted product placement
+- Identify **top-performing and underperforming segments**.
+- Understand **customer buying behavior** (e.g., fat content preferences).
+- Optimize **inventory distribution** across outlet sizes and tiers.
+- Improve **customer satisfaction** through targeted product placement.
 
 Without a centralized analytical view, decision-making remains reactive and inefficient.
 
 ---
 
 ## 🎯 Objectives
-
 The core objectives of this case study are:
-
-1. ✅ Evaluate **overall sales performance** using key KPIs.
-2. ✅ Analyze **product-level performance** by fat content and item type.
+1. ✅ Evaluate **overall sales performance** using dynamic Excel KPIs.
+2. ✅ Analyze **product-level performance** by fat content and item type using PivotTables.
 3. ✅ Assess **outlet performance** by establishment year, size, location tier, and outlet type.
 4. ✅ Determine the **relationship between item visibility and sales**.
 5. ✅ Provide **data-backed recommendations** to improve revenue and customer satisfaction.
@@ -61,7 +55,6 @@ The core objectives of this case study are:
 ---
 
 ## 📂 Dataset Overview
-
 | Attribute | Details |
 | :--- | :--- |
 | **Dataset Name** | BlinkIT Grocery Data |
@@ -74,14 +67,13 @@ The core objectives of this case study are:
 ---
 
 ## 📊 Data Dictionary
-
 | Column Name | Description | Data Type |
 | :--- | :--- | :--- |
 | `Item Fat Content` | Fat category of the product (`Low Fat` / `Regular`) | Categorical |
 | `Sr No` | Serial number of the record | Integer |
 | `Item Identifier` | Unique product identifier | Alphanumeric |
 | `Item Type` | Product category (e.g., Dairy, Snacks, Frozen Foods) | Categorical |
-| `Outlet Establishment Year` | Year the outlet was established | Date/Integer |
+| `Outlet Establishment Year` | Year the outlet was established | Integer |
 | `Outlet Identifier` | Unique outlet identifier | Alphanumeric |
 | `Outlet Location Type` | City tier classification (`Tier 1`, `Tier 2`, `Tier 3`) | Categorical |
 | `Outlet Size` | Store size (`Small`, `Medium`, `High`) | Categorical |
@@ -94,38 +86,30 @@ The core objectives of this case study are:
 ---
 
 ## 🛠 Tools & Technologies
-
 | Tool | Purpose |
 | :--- | :--- |
-| **Microsoft Excel** | Initial data inspection and cleaning |
-| **Power BI Desktop** | Data modeling, DAX measures, interactive dashboard |
-| **Power Query** | Data transformation and ETL |
-| **DAX** | KPI calculations and dynamic measures |
+| **Microsoft Excel** | Primary tool for data modeling, PivotTables, Slicers, and Dashboard visualization |
+| **Excel Power Query** | Data transformation, ETL, and handling missing values |
+| **Advanced Excel Formulas** | `XLOOKUP`, `SUMIFS`, `COUNTIFS`, `AVERAGEIFS` for dynamic KPI calculations |
+| **Conditional Formatting** | Data bars and color scales to highlight top/bottom performers |
 | **Git & GitHub** | Version control and project documentation |
 
 ---
 
 ## 🧹 Data Cleaning & Preparation
-
-The following preprocessing steps were performed to ensure data quality:
-
-1. **Standardization of Fat Content:**
-   - Corrected inconsistent entries such as `LF`, `low fat`, and `reg` to `Low Fat` and `Regular`.
-2. **Handling Missing Values:**
-   - `Item Weight` had null values — left as-is for aggregate analysis or imputed using category averages where necessary.
-3. **Data Type Conversion:**
-   - Converted `Outlet Establishment Year` to a proper date format.
-   - Ensured `Sales`, `Rating`, and `Item Visibility` were numeric.
-4. **Categorization:**
-   - Grouped outlets into `Tier 1`, `Tier 2`, `Tier 3` based on location hierarchy.
-5. **Duplicate Check:**
-   - Verified no duplicate `Item Identifier` + `Outlet Identifier` combinations.
+The following preprocessing steps were performed (using Excel Power Query / Python) to ensure data quality:
+1. **Standardization of Fat Content:** Corrected inconsistent entries such as `LF`, `low fat`, and `reg` to standardized `Low Fat` and `Regular`.
+2. **Handling Missing Values:** `Item Weight` null values were imputed using the median weight of the respective `Item Type`.
+3. **Data Type Conversion:** Ensured `Outlet Establishment Year`, `Sales`, `Rating`, and `Item Visibility` were strictly numeric.
+4. **Duplicate Check:** Verified and removed duplicate `Item Identifier` + `Outlet Identifier` combinations.
+5. **Excel Table Conversion:** Converted the raw range into an official Excel Table (`Ctrl+T`) to ensure dynamic range referencing for PivotTables.
 
 ---
 
-## 📈 Dashboard KPIs
-
-The dashboard surfaces the following high-level metrics:
+## 📈 Dashboard Features & KPIs
+The Excel dashboard is built on a separate sheet, disconnected from raw data, featuring:
+- **Dynamic Slicers:** For `Outlet Size`, `Outlet Location Type`, and `Item Type`.
+- **KPI Cards:** Built using `GETPIVOTDATA` and `SUMIFS` for real-time updates.
 
 | KPI | Value |
 | :--- | :--- |
@@ -139,11 +123,10 @@ The dashboard surfaces the following high-level metrics:
 ---
 
 ## 🔍 Exploratory Data Analysis (EDA)
-
 ### 1️⃣ Sales by Fat Content
 - **Low Fat** products dominate: **$776.3K (64.6%)**
 - **Regular** products: **$425.36K (35.4%)**
-- **Insight:** Customers show a strong preference for health-conscious products.
+- *Insight:* Customers show a strong preference for health-conscious products.
 
 ### 2️⃣ Sales by Item Type
 | Item Type | Total Sales |
@@ -153,7 +136,6 @@ The dashboard surfaces the following high-level metrics:
 | Household | $136.0K |
 | Frozen Foods | $118.6K |
 | Dairy | $101.3K |
-
 > **Top 2 categories account for ~29% of total revenue.**
 
 ### 3️⃣ Sales by Outlet Establishment Year
@@ -181,13 +163,11 @@ The dashboard surfaces the following high-level metrics:
 | Grocery Store | $151.9K |
 | Supermarket Type2 | $131.5K |
 | Supermarket Type3 | $130.7K |
-
 > **Supermarket Type1 alone contributes ~65% of total revenue.**
 
 ---
 
 ## 💡 Key Insights
-
 1. **Health-Conscious Consumers:** Low Fat items outsell Regular items almost **2:1**, indicating a strong shift in customer preference.
 2. **Tier 3 Dominance:** Contrary to assumptions, **Tier 3 cities generate the highest revenue**, suggesting strong untapped demand in smaller cities.
 3. **Medium Outlets Win:** Medium-sized outlets outperform both small and large stores, implying an optimal store-size sweet spot.
@@ -198,107 +178,37 @@ The dashboard surfaces the following high-level metrics:
 ---
 
 ## 🚀 Strategic Recommendations
-
 | # | Recommendation | Rationale |
 | :--- | :--- | :--- |
 | 1 | **Expand Low Fat product lines** | Low Fat items contribute 64.6% of revenue |
 | 2 | **Prioritize Tier 3 city expansion** | Highest revenue contribution ($472K) |
 | 3 | **Focus on Medium-sized outlets** | Best sales-to-size efficiency |
 | 4 | **Replicate Supermarket Type1 model** | Generates ~65% of total revenue |
-| 5 | **Optimize Fruits & Vegetables and Snacks supply chains** | Top 2 item categories by revenue |
+| 5 | **Optimize F&V and Snacks supply chains** | Top 2 item categories by revenue |
 | 6 | **Re-evaluate shelf visibility strategy** | Weak correlation with sales — test alternative placement tactics |
 | 7 | **Launch customer feedback loops** | Improve rating from 3.97 to ≥4.3 |
 
 ---
 
 ## 📁 Repository Structure
-
-```
+```text
 blinkit-sales-analysis/
 │
 ├── data/
-│   ├── BlinkIT_Grocery_Data.xlsx        # Raw dataset
-│   └── cleaned_data.csv                 # Cleaned dataset
+│   ├── BlinkIT_Grocery_Data_Raw.xlsx    # Original raw dataset
+│   └── cleaned_data.csv                 # Cleaned dataset for SQL/Python validation
 │
 ├── dashboard/
-│   └── Blinkit_Dashboard.pbix           # Power BI dashboard file
+│   └── Blinkit_Excel_Dashboard.xlsx     # Final interactive Excel Dashboard
 │
 ├── images/
-│   └── dashboard_preview.png            # Dashboard screenshot
+│   └── dashboard_preview.png            # Dashboard screenshot for README
 │
 ├── docs/
 │   └── case_study_report.pdf            # Detailed PDF report
 │
 ├── sql/
-│   └── queries.sql                      # SQL analysis queries
+│   └── queries.sql                      # SQL analysis queries for validation
 │
 ├── README.md                            # Project documentation
-└── LICENSE
-```
-
----
-
-## ⚙️ How to Use This Project
-
-1. **Clone the Repository**
-   ```bash
-   git clone https://github.com/yourusername/blinkit-sales-analysis.git
-   cd blinkit-sales-analysis
-   ```
-
-2. **Load the Data**
-   - Open `data/BlinkIT_Grocery_Data.xlsx` in Excel or Power BI.
-
-3. **Open the Dashboard**
-   - Launch `dashboard/Blinkit_Dashboard.pbix` in **Power BI Desktop**.
-   - Click **Refresh** to reload visuals from the data source.
-
-4. **Explore the Insights**
-   - Use slicers (Outlet Size, Outlet Location, Item Type) to filter and drill down.
-
-5. **Run SQL Queries (Optional)**
-   - Import the cleaned CSV into any SQL database.
-   - Execute queries from `sql/queries.sql` for custom analysis.
-
----
-
-## 📊 Results & Business Impact
-
-- **Revenue Visibility:** Consolidated $1.20M in sales into a single decision-ready view.
-- **Data-Backed Expansion:** Identified Tier 3 and Medium-sized outlets as highest ROI targets.
-- **Product Strategy:** Confirmed Low Fat and F&V categories as strategic priorities.
-- **Customer Experience:** Highlighted opportunity to lift 3.97 rating to boost retention.
-
----
-
-## 🔮 Future Scope
-
-- 🔹 Integrate **time-series forecasting** to predict monthly sales.
-- 🔹 Add **customer segmentation** using RFM analysis.
-- 🔹 Incorporate **competitor pricing data** for dynamic pricing strategy.
-- 🔹 Build a **real-time dashboard** using Power BI Service with scheduled refresh.
-- 🔹 Apply **machine learning** to predict outlet-level sales based on location and size.
-
----
-
-## 👤 Author
-
-**[Your Name]**
-📧 Email: your.email@example.com
-🔗 LinkedIn: [linkedin.com/in/yourprofile](https://linkedin.com/in/yourprofile)
-🐙 GitHub: [github.com/yourusername](https://github.com/yourusername)
-
-*Data Analyst | Power BI | SQL | Python | Business Intelligence*
-
----
-
-## 📄 License
-
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
-
-> ⚠️ **Disclaimer:** This project uses publicly available/simulated retail data for **educational and portfolio purposes only**. It is not affiliated with Blinkit or its parent company.
-
----
-
-⭐ **If you found this project helpful, please consider giving it a star!** ⭐
-```
+└── LICENSE                              # MIT License
